@@ -1,0 +1,52 @@
+.login-container {
+  height: 100vh;
+  background-image: url("/public/pictures/Login Bg.jpg");
+  background-size: cover;
+}
+.login-form-container {
+  height: 350px;
+  background: rgba(255, 255, 255, 0.521);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.login-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 34px;
+  letter-spacing: 2px;
+  color: #7d4d2a;
+}
+.login-input {
+  height: 50px;
+  width: 80%;
+  border: 3px solid #7d4d2a;
+  border-radius: 10px;
+}
+.login-input:focus {
+  outline: 0;
+}
+.login-input::placeholder{
+  color: #737373;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+.login-btn {
+  background-color: #7d4d2a;
+  height: 50px;
+  width: 80%;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+}
+.create-acc-link {
+  text-align: end;
+  font-weight: bold;
+  width: 80%;
+  color: #7d4d2a;
+}
+
+.height-100 {
+  height: 100vh;
+}

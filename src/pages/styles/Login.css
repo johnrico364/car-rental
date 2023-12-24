@@ -24,9 +24,6 @@
   border: 3px solid #7d4d2a;
   border-radius: 10px;
 }
-.login-input:focus {
-  outline: 0;
-}
 .login-input::placeholder{
   color: #737373;
   font-size: 15px;

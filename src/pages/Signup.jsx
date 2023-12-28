@@ -1,5 +1,5 @@
 import "./styles/Signup.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export const Signup = () => {
   const navigate = useNavigate();
@@ -57,6 +57,9 @@ export const Signup = () => {
                   >
                     Sign Up
                   </button>
+                </div>
+                <div className="text-end mt-3">
+                  <Link to={"/"} className="have-account">I have an account</Link>
                 </div>
               </div>
             </div>

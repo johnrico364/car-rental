@@ -1,9 +1,30 @@
-import { Outlet } from "react-router-dom";
+import "../styles/Navbar.css";
+import { Outlet, Link } from "react-router-dom";
 
 export const UserNavbar = () => {
   return (
-    <div>
-      <h1>Helo</h1>
+    <div className="container-fluid main-background">
+      <div className="d-flex">
+        <div className="w-25 mt-3 " id="logo-container">
+          <img src="/images/Logo.png" height={50} alt="" />
+        </div>
+        <div className="w-75 mt-3 ">
+          <ul className="nav justify-content-end pt-2" id="nav-container">
+            <li className="nav-item">
+              <Link className="nav-routers" to={"rent"}>Rent</Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-routers" to={"profile"}>Profile/Booked</Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-routers" to={"garage"}>Garage</Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-routers">Sign out</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
       <Outlet />
     </div>
   );

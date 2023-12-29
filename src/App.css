@@ -1,12 +1,50 @@
 .App {
-  font-family: 'poppins', sans-serif;
+  font-family: "poppins", sans-serif;
 }
-.height-100{
+.height-100 {
   height: 100vh;
 }
-input:focus{
+input:focus {
   outline: 0;
 }
-select:focus{
+select:focus {
   outline: 0;
+}
+.route-height-container {
+  height: 86vh;
+  background-color: white;
+}
+
+.input-Container {
+  height: 52px;
+  border: 3px #b86836 solid;
+  border-radius: 10px;
+  background-color: #e7c69e;
+  color: #737373;
+}
+.input-Container::placeholder {
+  color: #737373;
+  font-size: 15px;
+}
+.sign-up-btn {
+  background-color: #e7c69e;
+  color: #7d4d2a;
+  font-weight: bolder;
+  font-size: 20px;
+  width: 100%;
+  height: 52px;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  border: 0;
+}
+.regular-btn {
+  background-color: #e7c69e;
+  color: #7d4d2a;
+  font-weight: bolder;
+  font-size: 20px;
+  width: 100%;
+  height: 52px;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  border: 3px solid #b86836;
 }

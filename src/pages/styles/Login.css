@@ -1,6 +1,6 @@
 .login-container {
   height: 100vh;
-  background-image: url("/public/pictures/Login Bg.jpg");
+  background-image: url("/public/images/Login Bg.jpg");
   background-size: cover;
 }
 .login-form-container {

@@ -1,0 +1,10 @@
+.rent-car-title {
+  font-size: 3vw;
+  font-weight: bold;
+  color: #b86836;
+}
+.available-car-container {
+  border: 3px solid #b86836;
+  border-radius: 10px;
+  height: 37vh;
+}

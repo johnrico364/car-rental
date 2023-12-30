@@ -1,3 +1,4 @@
+/* RentCar.jsx */
 .rent-car-title {
   font-size: 3vw;
   font-weight: bold;
@@ -7,4 +8,45 @@
   border: 3px solid #b86836;
   border-radius: 10px;
   height: 37vh;
+}
+
+/* Profule.jsx */
+.profile-side {
+  background-color: #d0b391;
+  height: 86vh;
+  border-radius: 0 10px 10px 0;
+}
+.profile-icon {
+  font-size: 11vw;
+  color: #b86836;
+}
+.profile-name {
+  font-size: 1.5vw;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.profile-id {
+  font-size: 1.1vw;
+}
+.profile-gender {
+  font-size: 1.4vw;
+}
+.reserved-car-container {
+  height: 60vh;
+  border: 1.8px solid #d0b391;
+  border-radius: 10px;
+}
+.car-values{
+  padding-top: 0.5vw;
+  font-size: 1vw;
+}
+.car-values-container{
+  height: 5.5vh;
+  border: 2px solid #B86836;
+  border-radius: 10px;
+}
+.car-values-title{
+  font-size: 1vw;
+  font-weight: bold;
+  color: #d0b391;
 }

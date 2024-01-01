@@ -50,3 +50,16 @@
   font-weight: bold;
   color: #d0b391;
 }
+
+/* Garage */
+.garage-title{
+  font-size: 3vw;
+  font-weight: bold;
+  color: #b86836;
+  letter-spacing: 1px;
+}
+.garage-items-container{
+  height: 73vh;
+}
+
+

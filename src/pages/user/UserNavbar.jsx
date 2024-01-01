@@ -26,7 +26,7 @@ export const UserNavbar = () => {
               </Link>
             </li>
             <li class="nav-item">
-              <Link class="nav-routers">Sign out</Link>
+              <Link class="nav-routers" to={"/"}>Sign out</Link>
             </li>
           </ul>
         </div>

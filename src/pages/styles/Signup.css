@@ -16,3 +16,8 @@
   width: 80%;
   color: #7d4d2a;
 }
+.error-message{
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+}

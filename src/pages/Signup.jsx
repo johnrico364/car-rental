@@ -120,7 +120,6 @@ export const Signup = () => {
                     <button
                       type="submit"
                       className="sign-up-btn mt-3"
-                      // onClick={() => navigate("/")}
                     >
                       Sign Up
                     </button>

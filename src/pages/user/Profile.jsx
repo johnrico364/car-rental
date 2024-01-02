@@ -1,13 +1,20 @@
+import { useContext } from "react";
+import { AppContext } from "../../App";
+
 export const ProfilePage = () => {
+  const { userData } = useContext(AppContext);
+
+  console.log(userData);
+
   return (
     <div className="route-height-container animate__animated animate__backInUp">
       <div className="container-fluid">
         <div className="row">
           <div className="col-3 profile-side text-center pt-4">
             <i class="bi bi-person-circle profile-icon"></i>
-            <div className="profile-name">John Anthony Rico</div>
-            <div className="profile-id">1DFSR14-F352DFSDF-34234FSDF-234234</div>
-            <div className="profile-gender">Male</div>
+            <div className="profile-name">{userData?.first_name} {userData?.last_name}</div>
+            <div className="profile-id">{userData?.user_id}</div>
+            <div className="profile-gender">{userData?.gender}</div>
           </div>
           <div className="col-9 px-4 border">
             <div className="rent-car-title pt-5">Reserved Titles</div>

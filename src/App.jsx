@@ -8,6 +8,7 @@ import { ProfilePage } from "./pages/user/Profile";
 import { Garage } from "./pages/user/Garage";
 import { useState, createContext } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { AdminNavbar } from "./pages/admin/AdminNavbar";
 
 export const AppContext = createContext();
 
@@ -26,7 +27,7 @@ function App() {
               <Route path="profile" element={<ProfilePage />} />
               <Route path="garage" element={<Garage />} />
             </Route>
-            <Route path="admin">
+            <Route path="admin" element={<AdminNavbar/>}>
               <Route path="list" />
               <Route path="add-car" />
               <Route path="dashboard" />

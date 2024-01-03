@@ -5,38 +5,33 @@
   color: #b86836;
   padding-left: 3vw;
 }
-.horizontal-line{
-    width: 92vw;
-    margin-left: 3vw;
-    border: 1px solid #b8683693;
+.horizontal-line {
+  width: 92vw;
+  margin-left: 3vw;
+  border: 1px solid #b8683693;
 }
-.rented-values{
-    padding-top: 9px;
-    font-size: 12px;
+.rented-values {
+  padding-top: 9px;
+  font-size: 12px;
 }
-.rented-values-title{
-    font-size: 14px;
-    color: #d0b391;
-    font-weight: bold;
+.rented-values-title {
+  font-size: 14px;
+  color: #d0b391;
+  font-weight: bold;
 }
-.rented-item{
-    border: 2px solid #b86836d5;
-    border-radius: 10px;
-    height: 40px;
+.rented-item {
+  border: 2px solid #b86836d5;
+  border-radius: 10px;
+  height: 40px;
 }
-.rented-values-container{
-    height: 76vh;
+.rented-values-container {
+  height: 76vh;
 }
 
 /* Add Car */
-
-
-
-
-
-
-
-
-
-
-
+.add-car-title {
+  font-size: 3vw;
+  font-weight: bold;
+  color: #b86836;
+  padding-left: 3vw;
+}

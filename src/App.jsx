@@ -9,6 +9,9 @@ import { Garage } from "./pages/user/Garage";
 import { useState, createContext } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AdminNavbar } from "./pages/admin/AdminNavbar";
+import { RentList } from "./pages/admin/RentList";
+import { AddCar } from "./pages/admin/AddCar";
+import { Dashboard } from "./pages/admin/Dashboard";
 
 export const AppContext = createContext();
 
@@ -28,9 +31,9 @@ function App() {
               <Route path="garage" element={<Garage />} />
             </Route>
             <Route path="admin" element={<AdminNavbar/>}>
-              <Route path="list" />
-              <Route path="add-car" />
-              <Route path="dashboard" />
+              <Route path="list" element={<RentList/>}/>
+              <Route path="add-car" element={<AddCar/>}/>
+              <Route path="dashboard" element={<Dashboard/>}/>
             </Route>
 
             <Route path="" element={<Login />} />

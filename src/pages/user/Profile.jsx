@@ -4,8 +4,6 @@ import { AppContext } from "../../App";
 export const ProfilePage = () => {
   const { userData } = useContext(AppContext);
 
-  console.log(userData);
-
   return (
     <div className="route-height-container animate__animated animate__backInUp">
       <div className="container-fluid">

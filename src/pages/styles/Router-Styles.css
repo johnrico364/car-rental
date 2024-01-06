@@ -4,13 +4,37 @@
   font-weight: bold;
   color: #b86836;
 }
-.available-car-container {
+.available-car-table{
   border: 3px solid #b86836;
   border-radius: 10px;
   height: 37vh;
 }
+.available-car-items{
+  height: 40px;
+  border: 2px solid #d0b391;
+  border-radius: 10px;
+}
+.available-car-values{
+  font-size: 15px;
+  padding-top: 7px;
+}
+.available-car-title{
+  font-size: 15px;
+  font-weight: bold;
+  color: #d0b391c0;
+}
+.rent-button{
+  margin-top: 3px;
+  height: 30px;
+  width: 80px;
+  border: 0;
+  border-radius: 7px;
+  background-color: #d0b391;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 
-/* Profule.jsx */
+/* Profile.jsx */
 .profile-side {
   background-color: #d0b391;
   height: 86vh;

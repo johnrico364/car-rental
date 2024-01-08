@@ -28,7 +28,7 @@ export const AddCar = () => {
   const addCarAPI = async (new_car) => {
     try {
       await axios.post(
-        "https://apex.oracle.com/pls/apex/jao_workspace/car-rental/car/add",
+        "https://apex.oracle.com/pls/apex/jao_workspace/car-rental/admin/add-car",
         new_car
       );
       return true;

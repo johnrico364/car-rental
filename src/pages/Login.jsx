@@ -63,7 +63,6 @@ export const Login = () => {
                     className="login-input"
                     type="text"
                     placeholder="Username"
-                    onChange={() => setResponse("")}
                     {...register("username")}
                   />
                   <div className="error-message">
@@ -75,12 +74,10 @@ export const Login = () => {
                     className="login-input"
                     type="password"
                     placeholder="Password"
-                    onChange={() => setResponse("")}
                     {...register("password")}
                   />
                   <div className="error-message">
-                    {errors.password?.message}
-                    {response}
+                    {errors.password?.message} {response}
                   </div>
                 </div>
                 <div className="col-12 mt-3">

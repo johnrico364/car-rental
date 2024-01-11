@@ -27,6 +27,15 @@
 .rented-values-container {
   height: 76vh;
 }
+.returned-btn{
+  color: #b86836;
+  font-weight: bold;
+  font-size: 16px;
+  border: 0;
+  background-color: white;
+  margin-top: 2.5px;
+
+}
 
 /* Add Car */
 .add-car-title {
@@ -77,4 +86,11 @@
   border: 2px solid #b86836d5;
   border-radius: 10px;
   height: 42px;
+}
+.view-btn{
+  color: #b86836;
+  font-size: 14px;
+  font-weight: bold;
+  border: 0;
+  background-color: white;
 }

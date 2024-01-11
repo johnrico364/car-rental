@@ -1,6 +1,34 @@
+import axios from "axios";
 import "../styles/Admin-Styles.css";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 export const Dashboard = () => {
+  const [dashboardData, set_dashboardData] = useState({});
+
+  const getDashboardCarsAPI = async () => {
+    try {
+      const { data: cars } = await axios.get(
+        "https://apex.oracle.com/pls/apex/jao_workspace/car-rental/admin/dashboard"
+      );
+      const { data } = await axios.get(
+        "https://apex.oracle.com/pls/apex/jao_workspace/car-rental/admin/dashboard/data"
+      );
+      set_dashboardData(data);
+
+      return cars.items;
+    } catch (error) {}
+  };
+  const deleteCar = async () => {
+    try {
+      await axios.delete("");
+    } catch (error) {}
+  };
+
+  const dashboardCars = useQuery({
+    queryKey: ["cars"],
+    queryFn: getDashboardCarsAPI,
+  });
   return (
     <div className="route-height-container">
       <div className="container-fluid">
@@ -12,13 +40,17 @@ export const Dashboard = () => {
                   <div className="dashboard-data-title">
                     Total Sales per day
                   </div>
-                  <div className="dashboard-data-number">10000</div>
+                  <div className="dashboard-data-number">
+                    {dashboardData?.sales}
+                  </div>
                 </div>
               </div>
               <div className="col-3">
                 <div className="dashboard-data">
                   <div className="dashboard-data-title">Total Rented Cars</div>
-                  <div className="dashboard-data-number">10000</div>
+                  <div className="dashboard-data-number">
+                    {dashboardData?.rented_cars}
+                  </div>
                 </div>
               </div>
               <div className="col-3">
@@ -26,13 +58,17 @@ export const Dashboard = () => {
                   <div className="dashboard-data-title">
                     Total Available Cars
                   </div>
-                  <div className="dashboard-data-number">10000</div>
+                  <div className="dashboard-data-number">
+                    {dashboardData?.available_cars}
+                  </div>
                 </div>
               </div>
               <div className="col-3">
                 <div className="dashboard-data">
                   <div className="dashboard-data-title">Total Users</div>
-                  <div className="dashboard-data-number">10000</div>
+                  <div className="dashboard-data-number">
+                    {dashboardData?.users}
+                  </div>
                 </div>
               </div>
             </div>
@@ -51,17 +87,30 @@ export const Dashboard = () => {
                     Fare per day
                   </div>
                 </div>
-                <div className="row mb-2 dashboard-table-item">
-                  <div className="col-4 dashboard-table-values">
-                    0DE67425-BA30-CAE0-E063-1611A8C041FA
-                  </div>
-                  <div className="col-2 dashboard-table-values">
-                    Toyota Supra
-                  </div>
-                  <div className="col-2 dashboard-table-values">Sedan</div>
-                  <div className="col-2 dashboard-table-values">Red</div>
-                  <div className="col-2 dashboard-table-values">P 2000</div>
-                </div>
+                {dashboardCars.data?.map((car) => {
+                  return (
+                    <div className="row mb-2 dashboard-table-item">
+                      <div className="col-4 dashboard-table-values">
+                        {car?.car_id}
+                      </div>
+                      <div className="col-2 dashboard-table-values">
+                        {car?.name}
+                      </div>
+                      <div className="col-2 dashboard-table-values">
+                        {car?.category}
+                      </div>
+                      <div className="col-2 dashboard-table-values">
+                        {car?.color}
+                      </div>
+                      <div className="col-1 dashboard-table-values ">
+                        ₱ {car?.fare}
+                      </div>
+                      <div className="col-1 dashboard-table-values  text-end">
+                       <button className="view-btn">View</button>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

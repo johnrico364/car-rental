@@ -65,6 +65,9 @@ export const AddCar = () => {
                     className="input-Container w-100"
                     {...register("category")}
                   >
+                    <option selected value={""} disabled>
+                      Category
+                    </option>
                     <option>Sedan</option>
                     <option>SUV</option>
                     <option>Coupe</option>

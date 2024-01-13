@@ -83,10 +83,10 @@ export const Dashboard = () => {
                 <div className="row my-2">
                   <div className="col-4 dashboard-table-title">Car Id</div>
                   <div className="col-2 dashboard-table-title">Car Name</div>
+                  <div className="col-2 dashboard-table-title">Color</div>
                   <div className="col-2 dashboard-table-title">
                     Car Category
                   </div>
-                  <div className="col-2 dashboard-table-title">Color</div>
                   <div className="col-2 dashboard-table-title">
                     Fare per day
                   </div>
@@ -102,10 +102,10 @@ export const Dashboard = () => {
                         {car?.name}
                       </div>
                       <div className="col-2 dashboard-table-values">
-                        {car?.category}
+                        {car?.color}
                       </div>
                       <div className="col-2 dashboard-table-values">
-                        {car?.color}
+                        {car?.category}
                       </div>
                       <div className="col-1 dashboard-table-values ">
                         ₱ {car?.fare}

@@ -157,7 +157,7 @@ export const ViewCar = () => {
                       {...register("category")}
                     >
                       <option selected disabled>
-                        {carData?.name}
+                        {carData?.category}
                       </option>
                       <option>Sedan</option>
                       <option>SUV</option>

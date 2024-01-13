@@ -5,10 +5,19 @@ import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../App";
+import { useQuery } from "@tanstack/react-query";
 
 export const Login = () => {
+  const checkUser = sessionStorage.getItem("user");
+
+  useEffect(() => {
+    if (checkUser) {
+      navigate("user/profile");
+    }
+  }, []);
+
   const navigate = useNavigate();
   const [response, setResponse] = useState("");
   const { userData, setUserData } = useContext(AppContext);
@@ -39,17 +48,19 @@ export const Login = () => {
         loginData
       );
       setUserData(data);
-      return true;
+      return data;
     } catch (err) {
       setResponse(err.response.data.message);
     }
   };
 
   const loginAcc = async (data) => {
-    const status = await loginAPI(data);
-    status && navigate("/user");
-  };
+    const infos = await loginAPI(data);
 
+    if (!infos) return;
+    infos?.admin === "yes" ? navigate("/admin") : navigate("/user");
+    sessionStorage.setItem("user", infos?.user_id);
+  };
   return (
     <div className="login-container">
       <div className="container-fluid">

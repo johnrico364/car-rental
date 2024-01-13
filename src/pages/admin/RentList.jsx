@@ -14,14 +14,23 @@ export const RentList = () => {
       return data.items;
     } catch (error) {}
   };
-  const carReturnedAPI = async (id) => {
+  const carReturnedAPI = async (id, car_return) => {
     try {
-      await axios.delete(
-        `https://apex.oracle.com/pls/apex/jao_workspace/car-rental/admin/rent-list/${id}`
+      await axios.put(
+        `https://apex.oracle.com/pls/apex/jao_workspace/car-rental/admin/rent-list/${id}`,
+        car_return
       );
     } catch (error) {}
   };
 
+  const handleReturnCar = async (id, carId) => {
+    const toReturn = {
+      carid: carId,
+    };
+
+    await carReturnedAPI(id, toReturn);
+  };
+  
   const rentList = useQuery({
     queryKey: ["car_rented"],
     queryFn: getRentedCar,
@@ -54,7 +63,7 @@ export const RentList = () => {
               );
 
               const total_fare = car.fare * rentalDays;
-
+              console.log(car);
               return (
                 <div className="row mb-2 rented-item">
                   <div className="col-3 rented-values">{car.id}</div>
@@ -67,7 +76,7 @@ export const RentList = () => {
                   <div className="col-2 text-end">
                     <button
                       className="returned-btn"
-                      onClick={() => carReturnedAPI(car.id)}
+                      onClick={() => handleReturnCar(car.id, car.car_rented)}
                     >
                       Returned
                     </button>

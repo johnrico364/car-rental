@@ -94,3 +94,24 @@
   border: 0;
   background-color: white;
 }
+
+/* View Car */
+.view-image{
+  height: 20vw;
+  background-image: url('/public/images/Car\ Images.jpg');
+  background-size: cover;
+}
+.car-details{
+  font-size: 1.2vw;
+  color: #b86836;
+}
+.modify-form-label{
+  font-size: 1.3vw;
+  color: #b86836;
+  font-weight: bold;
+}
+.to-dashboard-btn{
+  font-size: 2.3vw;
+  color: #b86836;
+  cursor: pointer;
+}

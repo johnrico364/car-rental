@@ -1,9 +1,14 @@
 import axios from "axios";
 import "../styles/Admin-Styles.css";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../../App";
+import { useNavigate } from "react-router-dom";
 
 export const Dashboard = () => {
+  const navigate = useNavigate();
+  const { set_carData, carData } = useContext(AppContext);
+
   const [dashboardData, set_dashboardData] = useState({});
 
   const getDashboardCarsAPI = async () => {
@@ -19,10 +24,9 @@ export const Dashboard = () => {
       return cars.items;
     } catch (error) {}
   };
-  const deleteCar = async () => {
-    try {
-      await axios.delete("");
-    } catch (error) {}
+  const viewCar = (data) => {
+    set_carData(data);
+    navigate("/admin/dashboard/view");
   };
 
   const dashboardCars = useQuery({
@@ -87,6 +91,7 @@ export const Dashboard = () => {
                     Fare per day
                   </div>
                 </div>
+
                 {dashboardCars.data?.map((car) => {
                   return (
                     <div className="row mb-2 dashboard-table-item">
@@ -106,7 +111,12 @@ export const Dashboard = () => {
                         ₱ {car?.fare}
                       </div>
                       <div className="col-1 dashboard-table-values  text-end">
-                       <button className="view-btn">View</button>
+                        <button
+                          className="view-btn"
+                          onClick={() => viewCar(car)}
+                        >
+                          View
+                        </button>
                       </div>
                     </div>
                   );

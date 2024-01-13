@@ -14,6 +14,7 @@ import { AdminNavbar } from "./pages/admin/AdminNavbar";
 import { RentList } from "./pages/admin/RentList";
 import { AddCar } from "./pages/admin/AddCar";
 import { Dashboard } from "./pages/admin/Dashboard";
+import { ViewCar } from "./pages/admin/ViewCar";
 
 export const AppContext = createContext();
 
@@ -21,11 +22,14 @@ function App() {
   const client = new QueryClient();
 
   const [userData, setUserData] = useState({});
+  const [carData, set_carData] = useState({});
 
   return (
     <div className="App">
       <QueryClientProvider client={client}>
-        <AppContext.Provider value={{ userData, setUserData }}>
+        <AppContext.Provider
+          value={{ userData, setUserData, carData, set_carData }}
+        >
           <Router>
             <Routes>
               <Route path="user" element={<UserNavbar />}>
@@ -37,6 +41,7 @@ function App() {
                 <Route path="list" element={<RentList />} />
                 <Route path="add-car" element={<AddCar />} />
                 <Route path="dashboard" element={<Dashboard />} />
+                <Route path="dashboard/view" element={<ViewCar />} />
               </Route>
 
               <Route path="" element={<Login />} />

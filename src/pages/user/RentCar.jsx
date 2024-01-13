@@ -42,27 +42,37 @@ export const RentCar = () => {
 
   const handleSearchCar = async () => {
     /* Search Car button */
-    if (
-      carName === "" ||
-      carColor === "" ||
-      startDate === "" ||
-      returnDate === ""
-    ) {
-      set_response("Please fill all the input below");
-      return;
-    }
-    if (new Date(startDate) >= new Date(returnDate)) {
-      set_response("Invalid start and return date...");
-      return;
-    }
+  if (
+    carName === "" ||
+    carColor === "" ||
+    startDate === "" ||
+    returnDate === ""
+  ) {
+    set_response("Please fill in all the input fields.");
+    return;
+  }
 
-    const car = await searchCarAPI(); //call API
-    const available_car = car.filter((data) => {
-      return data.rented === "no";
-    });
+  const currentDate = new Date();
+  const selectedStartDate = new Date(startDate);
+  const selectedReturnDate = new Date(returnDate);
 
-    set_cars(available_car);
-    available_car.length === 0 && set_nocar("No car found...");
+  if (selectedStartDate < currentDate) {
+    set_response("Please select a start date in the future.");
+    return;
+  }
+
+  if (selectedStartDate > selectedReturnDate) {
+    set_response("Invalid start and return date.");
+    return;
+  }
+
+  const car = await searchCarAPI(); // call API
+  const availableCars = car.filter((data) => {
+    return data.rented === "no";
+  });
+
+  set_cars(availableCars);
+  availableCars.length === 0 && set_nocar("No cars found.");
   };
 
   const handleRentCar = async (car_id) => {

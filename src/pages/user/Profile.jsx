@@ -77,7 +77,7 @@ export const ProfilePage = () => {
                           className="info-button"
                           onClick={() => handleGetInfo(booked.car_rented)}
                         >
-                          Info
+                          {isInfo ? "Cancel" : "Info"}
                         </button>
                       </div>
                     </div>

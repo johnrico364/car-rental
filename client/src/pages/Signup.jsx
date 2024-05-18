@@ -14,10 +14,7 @@ export const Signup = () => {
     fname: yup.string().required("Your first name is required"),
     lname: yup.string().required("Your last name is required"),
     gender: yup.string().required("Your gender is required"),
-    username: yup
-      .string()
-      .email("Invalid email")
-      .required("Username is required"),
+    email: yup.string().email("Invalid email").required("Username is required"),
     password: yup
       .string()
       .required("Need Password")
@@ -34,13 +31,10 @@ export const Signup = () => {
 
   const newUserAPI = async (newPost) => {
     try {
-      await axios.post(
-        "https://apex.oracle.com/pls/apex/jao_workspace/car-rental/account/sign-up",
-        newPost
-      );
+      await axios.post("/api/users/signup", newPost);
       return true;
     } catch (err) {
-      setResponse(err.response.data.message);
+      setResponse("! " + err.response.data.error);
     }
   };
 
@@ -57,6 +51,7 @@ export const Signup = () => {
           <div className="row align-items-center justify-content-center height-100">
             <div className="col-11 signup-form-container">
               <div className="create-acc-title">Create Account</div>
+              <div className="error-message">{response}</div>
               <form onSubmit={handleSubmit(createAccount)}>
                 <div className="row">
                   <div className="col-6 ps-0 pe-2">
@@ -86,6 +81,7 @@ export const Signup = () => {
                       className="input-Container w-100 mt-3"
                       {...register("gender")}
                     >
+                      <option value="">Select</option>
                       <option>Male</option>
                       <option>Female</option>
                     </select>
@@ -97,12 +93,11 @@ export const Signup = () => {
                     <input
                       className="input-Container w-100 mt-3"
                       type="text"
-                      placeholder="Username"
-                      {...register("username")}
+                      placeholder="Email"
+                      {...register("email")}
                     />
                     <span className="error-message">
                       {errors.username?.message}
-                      {response}
                     </span>
                   </div>
                   <div className="col-12 px-0">
@@ -117,10 +112,7 @@ export const Signup = () => {
                     </span>
                   </div>
                   <div className="col-12 px-0">
-                    <button
-                      type="submit"
-                      className="sign-up-btn mt-3"
-                    >
+                    <button type="submit" className="sign-up-btn mt-3">
                       Sign Up
                     </button>
                   </div>
